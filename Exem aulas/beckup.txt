@@ -1,0 +1,368 @@
+create table cliente(  
+    cod_clie numeric(4) primary key,  
+    nome_clie varchar(20) not null,  
+    endereco varchar(30),  
+    cidade varchar(15),  
+    cep char(8),  
+    uf char(2),  
+    cnpj char(16),  
+    ie char(12)  
+)
+;
+
+create table vendedor(  
+    cod_ven numeric(4) primary key,  
+    nome_ven varchar(20) not null,  
+    salario_fixo numeric(10,2),  
+    comissao char(1)  
+) 
+;
+
+create table produto(  
+  	cod_prod numeric(4) primary key,  
+    unidade varchar(3),  
+    descricao varchar(20),  
+    val_unit numeric(8,2)  
+) 
+;
+
+create table pedido(  
+    num_pedido numeric(4) primary key,  
+    pr_entrega numeric(3) not null,  
+    cod_clie_fk numeric(4) references cliente(cod_clie),  
+    cod_ven numeric(4) references vendedor(cod_ven)  
+) 
+;
+
+create table item_pedido(  
+    num_pedido_fk numeric(4) references pedido(num_pedido),  
+    cod_prod_fk numeric(4) references produto(cod_prod),  
+    quant numeric(8,2)  
+) 
+;
+
+insert into cliente values(720,'Ana', 'Rua 17 n.19', 'Niterói', 24358310, 'RJ', 12113231000134,2134)
+;
+
+insert into cliente values(870,'Flávio','Av.Pres Vargas,10','São Paulo', 22763931, 'SP', 2253412693879, 4631)
+;
+
+insert into cliente values(110,'Jorge', 'Rua Caiapó,13','Curitiba',30078500,'PR', 1451276498349, null)
+;
+
+insert into cliente values(222,'Lúcia','Rua Itabira,123','Belo Horizonte',22124391,'MG',28315212393488,2985)
+;
+
+insert into cliente values(830,'Mauricio','Av Paulista,1236','São Paulo',3012683,'SP',3281698574656,9343)
+;
+
+insert into cliente values(130,'Edmar','Rua da Praia,s/n','Salvador',30079300,'BA',234632842349,7121)
+;
+
+insert into cliente values(410,'Rodolfo','Largo da Lapa,27','Rio de Janeiro',30078900,'RJ',1285512823469,7431)
+;
+
+insert into cliente values(20,'Beth','Av.Climério,45','São Paulo',25679300,'SP',3248512673268,9280)
+;
+
+insert into cliente values(157,'Paulo','Trav.Moraes,casa 3','Londrina',null,'PR',328482233242,1923)
+;
+
+insert into cliente values(180,'Lívio','Av.Beira Mar,1256','Florianópolis',30077500,'SC',1273657123414,1111)
+;
+
+insert into cliente values(260,'Susana','Rua Lopes Mandes, 12','Niterói',30046500,'RJ',2176357712329,2530)
+;
+
+insert into cliente values(290,'Renato','Rua Meireles, 123','São Paulo',30225900,'SP',1327657112314,1820)
+;
+
+insert into cliente values(390,'Sebastião','Rua da igreja,10','Uberaba',30438700,'MG',321765472133,9071)
+;
+
+insert into cliente values(234,'José','Quadra 3, Bl. 3, sl. 1003','Brasília',22841650,'DF',2176357612323,2931)
+;
+
+insert into vendedor values(209,'José',1800,'C')
+;
+
+insert into vendedor values(111,'Carlos',2490,'A')
+;
+
+insert into vendedor values(11,'João',27801,'C')
+;
+
+insert into vendedor values(240,'Antônio',9500,'C')
+;
+
+insert into vendedor values(720,'Felipe',4600,'A')
+;
+
+insert into vendedor values(213,'Jonas',2300,'A')
+;
+
+insert into vendedor values(101,'João',2650,'C')
+;
+
+insert into vendedor values(310,'Josias',870,'B')
+;
+
+insert into vendedor values(250,'Maurício',2930,'B')
+;
+
+insert into produto values(25,'KG', 'Queijo', 0.97)
+;
+
+insert into produto values(31,'BAR', 'Chocolate', 0.87)
+;
+
+insert into produto values(78,'L','Vinho',2.00)
+;
+
+insert into produto values(22,'M','Linho',0.11)
+;
+
+insert into produto values(30,'SAC','Açúcar',0.30)
+;
+
+insert into produto values(53,'M','Linha',1.80)
+;
+
+insert into produto values(13,'G','Ouro',6.18)
+;
+
+insert into produto values(45,'M','Madeira',0.25)
+;
+
+insert into produto values(87,'M','Cano',1.97)
+;
+
+insert into produto values(77,'M','Papel',1.05)
+;
+
+insert into pedido values(121,20,410,209)
+;
+
+insert into pedido values(97,20,720,101)
+;
+
+insert into pedido values(101,15,70,101)
+;
+
+insert into pedido values(137,20,720,720)
+;
+
+insert into pedido values(148,20,720,101)
+;
+
+insert into pedido values(189,15,870,213)
+;
+
+insert into pedido values(104,30,110,101)
+;
+
+insert into pedido values(203,30,830,250)
+;
+
+insert into pedido values(98,20,410,209)
+;
+
+insert into pedido values(143,30,20,111)
+;
+
+insert into pedido values(105,30,180,240)
+;
+
+insert into pedido values(111,15,260,240)
+;
+
+insert into pedido values(103,20,260,11)
+;
+
+insert into pedido values(91,20,260,11)
+;
+
+insert into pedido values(138,20,260,11)
+;
+
+insert into pedido values(108,15,290,310)
+;
+
+insert into pedido values(119,30,390,250)
+;
+
+insert into pedido values(127,10,410,11)
+;
+
+insert into item_pedido values(121,25,10)
+;
+
+insert into item_pedido values(121,31,35)
+;
+
+insert into item_pedido values(97,77,20)
+;
+
+insert into item_pedido values(101,31,9)
+;
+
+insert into item_pedido values(101,78,18)
+;
+
+insert into item_pedido values(101,13,5)
+;
+
+insert into item_pedido values(98,77,5)
+;
+
+insert into item_pedido values(148,45,8)
+;
+
+insert into item_pedido values(148,31,7)
+;
+
+insert into item_pedido values(148,77,3)
+;
+
+insert into item_pedido values(148,25,10)
+;
+
+insert into item_pedido values(148,78,30)
+;
+
+insert into item_pedido values(104,53,32)
+;
+
+insert into item_pedido values(203,31,6)
+;
+
+insert into item_pedido values(189,78,45)
+;
+
+insert into item_pedido values(143,31,20)
+;
+
+insert into item_pedido values(143,78,10)
+;
+
+select *from cliente
+;
+
+select *from vendedor
+;
+
+select *from produto
+;
+
+select *from pedido
+;
+
+select *from item_pedido
+;
+
+SELECT cod_clie, nome_clie 
+FROM cliente 
+WHERE cod_clie BETWEEN 200 AND 300 
+ORDER BY cod_clie
+;
+
+SELECT * 
+FROM pedido 
+WHERE num_pedido <= 101 OR num_pedido >= 140 
+ORDER BY num_pedido
+;
+
+SELECT * 
+FROM vendedor 
+WHERE comissao IN ('A', 'B')
+;
+
+SELECT * 
+FROM produto 
+WHERE unidade NOT IN ('M', 'L', 'G')
+;
+
+SELECT nome_clie 
+FROM cliente 
+WHERE nome_clie LIKE 'R%'
+;
+
+SELECT nome_clie 
+FROM cliente 
+WHERE nome_clie LIKE '%o'
+;
+
+SELECT nome_clie 
+FROM cliente 
+WHERE nome_clie LIKE '%a%'
+;
+
+SELECT nome_clie 
+FROM cliente 
+WHERE LENGTH(nome_clie) = 4
+;
+
+SELECT nome_clie 
+FROM cliente 
+WHERE nome_clie LIKE '_e%'
+;
+
+SELECT nome_clie 
+FROM cliente 
+WHERE nome_clie LIKE '%i_'
+;
+
+SELECT nome_clie 
+FROM cliente 
+WHERE nome_clie LIKE 'J%'
+;
+
+SELECT nome_clie 
+FROM cliente 
+WHERE nome_clie LIKE '%o%'
+;
+
+SELECT nome_clie 
+FROM cliente 
+WHERE nome_clie LIKE '%e%' AND nome_clie LIKE '%o%'
+;
+
+SELECT nome_clie 
+FROM cliente 
+WHERE nome_clie NOT LIKE '%u%'
+;
+
+SELECT nome_clie 
+FROM cliente 
+WHERE nome_clie LIKE '%a%' OR nome_clie LIKE '%e%'
+;
+
+SELECT nome_clie 
+FROM cliente 
+WHERE nome_clie LIKE '%a%' OR nome_clie LIKE '%e%'
+;
+
+SELECT nome_clie 
+FROM cliente 
+WHERE nome_clie LIKE '%a%' OR nome_clie LIKE '%e%'
+;
+
+select nome_clie, upper(nome_clie), lower(nome_clie), length(nome_clie), initcap(nome_clie),
+substr(nome_clie,1,3) from cliente
+
+ select * from cliente where nome_clie = 'ana' or nome_clie  'ANA' or nome_clie = 'Ana';
+select * from cliente where upper(nome_clie) = 'ANA';
+
+
+select substr(endereco,3,3)||substr(cep,2,4)||substr(cidade,3,2) "Nova Senha" from cliente
+    
+select salario_fixo / 1.3, round(salario_fixo / 1.3,2),  trunc(salario_fixo / 1.3,2) from vendedor;
+
+select * from cliente
+select count(*) from cliente
+select count(cod_clie) from cliente
+select count(cod_clie), count(cep) from cliente
+
+select sum(salario_fixo), round(avg(salario_fixo),2), max(salario_fixo), min(salario_fixo) from vendedor;
+
+select uf, count(uf) from cliente group by uf

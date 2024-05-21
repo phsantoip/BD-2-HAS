@@ -1,0 +1,72 @@
+João Teixeira 
+Carlos Morelli
+
+TABLE:
+
+create table cliente(
+  	codcli number(4) not null primary key,
+    prenome varchar(30) not null,
+    sobrenome varchar(30) not null,
+    endereco varchar(35) not null,
+    telefone char(10) not null
+);
+
+create table aluga(
+    dataret date not null,
+    datadev date not null
+);
+
+create table dvd(
+  	numdvd number(4) not null primary key,
+	tipo varchar(25) 
+);
+
+create table filme(
+  	codfilme number(4) not null primary key,
+    titulo varchar(35) not null
+);
+
+create table ator(
+    codator number(4) not null primary key,
+    nome_popular varchar(30) not null,
+    nome_artistico varchar(30) not null,
+    datanasc date not null
+);
+
+create table categoria(
+    codcateg char(4) not null primary key,
+    descricao varchar(255) not null 
+);
+
+insert into filme values(1, 'Sai pra lá', 1);
+insert into filme values(2, 'Ajuda Eterna', 2);
+insert into filme values(3, 'Anjos Malditos', 2);
+insert into filme values(4, 'Pânico II', 4);
+insert into filme values(5, 'Um dia de furia', 3);
+insert into filme values(6, 'Lente Cega', 3);
+insert into filme values(7, 'Sinais do Tempo', 2);
+insert into filme values(8, 'A melodia da vida', 1);
+
+insert into cliente values(1, 'João', 'Silva', 'Rua da Cruz sem pé', 4441111);
+insert into cliente values(2, 'Antonio', 'Ferreira', 'Av. da Vila Velha', 66609333);
+insert into cliente values(3, 'Fabio', 'Dias', 'Rua da Cruz sem pé', 23370393);
+insert into cliente values(4, 'Andreia', 'Melo', 'Rua da Praia Bonita', 89897777);
+insert into cliente values(5, 'Murilo', 'Fontes', 'Av. dos Autonomistas', 90909090);
+
+into dvd values(1, 1, 'S');
+into dvd values(2, 1, 'S');
+into dvd values(3, 1, 'S');
+into dvd values(4, 2, 'D');
+into dvd values(5, 3, 'S');
+
+insert into categoria values(1, 'Comedia');
+insert into categoria values(2, 'Drama');
+insert into categoria values(3, 'Aventura');
+insert into categoria values(4, 'Terror');
+
+insert into ator values(1, 'Chico', 'Moedas', '21-jan-69');
+insert into ator values(2, 'Clovis Basilho', 'Banguela', '12-oct-62');
+insert into ator values(3, 'Tahis Carla', 'Gaia', '31-aug-52');
+insert into ator values(4, 'Alexandre Flauzino', 'Bluezão', '11-set-01');
+insert into ator values(5, 'Drauzio Vraunelas', 'Dr.Auzio', '20-dez-22');
+ 

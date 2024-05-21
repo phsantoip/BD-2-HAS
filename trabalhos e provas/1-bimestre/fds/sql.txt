@@ -1,0 +1,28 @@
+create table escola(
+
+	cnpj char(18) not null primary key,
+	nome varchar(35) not null,
+	endereco varchar(35) not null,
+	tipo_escola varchar(35) not null
+
+);
+
+create table curso(
+
+	id_curso number(4) not null primary key,
+	materia varchar(35) not null,
+	nome_curs varchar(35) not null,
+	fk_escola_cnpj char(18) references escola(cnpj)
+
+);
+
+create table aluno(
+
+	cd_matricula number(4) not null primary key,
+	nome_alu varchar(35) not null,
+	notas number(2) not null,
+	id_curs number(4) not null,
+	fk_curso_id_curso number(4) references curso(id_curso),
+	fk_escola_cnpj_curso char(18) references curso(fk_escola_cnpj)
+
+);
